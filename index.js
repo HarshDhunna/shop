@@ -65,6 +65,11 @@ app.use("/api/orders", isAuthenticated, orderRoutes);
 app.post("/api/create-payment-intent", isAuthenticated, createPaymentIntent);
 app.post("/api/send-mail", isAuthenticated, sendMail);
 
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'build', 'index.html'));
+});
+
+
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
 });
