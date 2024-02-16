@@ -26,21 +26,37 @@ exports.webHook = async (request, response) => {
 
   // Handle the event
   switch (event.type) {
-    case "payment_intent.created":
-      const paymentIntent = event.data.object;
-      console.log(`PaymentIntent for ${paymentIntent.amount} was successful!`);
-      // Then define and call a method to handle the successful payment intent.
-      // handlePaymentIntentSucceeded(paymentIntent);
-      console.log(paymentIntent);
-
+    case "payment_intent.amount_capturable_updated":
+      const paymentIntentAmountCapturableUpdated = event.data.object;
+      // Then define and call a function to handle the event payment_intent.amount_capturable_updated
       break;
-    case "payment_method.attached":
-      const paymentMethod = event.data.object;
-      // Then define and call a method to handle the successful attachment of a PaymentMethod.
-      // handlePaymentMethodAttached(paymentMethod);
+    case "payment_intent.canceled":
+      const paymentIntentCanceled = event.data.object;
+      // Then define and call a function to handle the event payment_intent.canceled
+      break;
+    case "payment_intent.created":
+      const paymentIntentCreated = event.data.object;
+      // Then define and call a function to handle the event payment_intent.created
+      break;
+    case "payment_intent.partially_funded":
+      const paymentIntentPartiallyFunded = event.data.object;
+      // Then define and call a function to handle the event payment_intent.partially_funded
+      break;
+    case "payment_intent.payment_failed":
+      const paymentIntentPaymentFailed = event.data.object;
+      // Then define and call a function to handle the event payment_intent.payment_failed
+      break;
+    case "payment_intent.processing":
+      const paymentIntentProcessing = event.data.object;
+      // Then define and call a function to handle the event payment_intent.processing
+      break;
+    case "payment_intent.requires_action":
+      const paymentIntentRequiresAction = event.data.object;
+      // Then define and call a function to handle the event payment_intent.requires_action
       break;
     case "payment_intent.succeeded":
-      console.log("I have Gotten payment_intent succeeded ");
+      const paymentIntentSucceeded = event.data.object;
+      // Then define and call a function to handle the event payment_in
       break;
     default:
       // Unexpected event type
